@@ -18,7 +18,7 @@ public class MyViewBille extends JFrame implements Observer {
 	private int tick;
 	
 	public MyViewBille(){
-		this.setTitle("Ma premiere fenetre Java");
+		this.setTitle("Particule");
 		
 	    JScrollPane jScrollPane = new JScrollPane(myJPanel, 
 	    		JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,

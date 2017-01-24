@@ -31,11 +31,11 @@ public abstract class Environement {
 			for(int j = 0; j < Utils.grideSizeY; j++){
 				if(map[i][j] != null && !map[i][j].isMoved()){
 					map[i][j].decide();
-					//System.out.println();
 				}
 			}
 		}
 		resetAll();
+		System.out.println("Tick;");
 	}
 	
 	private void resetAll(){
@@ -64,5 +64,8 @@ public abstract class Environement {
 	}
 	
 	public abstract Color[][] getColor();
-	
+
+	public boolean isEmpty(int x, int y){
+		return this.map[x][y] == null;
+	}
 }

@@ -1,5 +1,7 @@
 package utils;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.ResourceBundle;
 
 public class Utils {
@@ -14,6 +16,11 @@ public class Utils {
 	public static int refresh = Integer.parseInt(Utils.bundle.getString("refresh"));        //refresh sur le repaint
 	public static int nbParticules = Integer.parseInt(Utils.bundle.getString("nbParticules"));
 	public static int nbTricks = Integer.parseInt(Utils.bundle.getString("nbTricks"));
+	public static int sharkBreedTime = Integer.parseInt(Utils.bundle.getString("sharkBreedTime"));
+	public static int sharkStraveTime = Integer.parseInt(Utils.bundle.getString("sharkStarveTime"));
+	public static int fishBreedTime = Integer.parseInt(Utils.bundle.getString("fishBreedTime"));
+	public static int nbSharks = Integer.parseInt(Utils.bundle.getString("nbSharks"));
+	public static int nbFishes = Integer.parseInt(Utils.bundle.getString("nbFishes"));
 	
 	public static String scheduling = Utils.bundle.getString("scheduling");
 
@@ -39,7 +46,6 @@ public class Utils {
 		res[1] = (y + grideSizeY) % grideSizeY;
 		return res;
 	}
-	
-	
+
 }
 

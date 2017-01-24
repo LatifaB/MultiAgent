@@ -15,7 +15,7 @@ public class Wator extends Environement {
 			rdm.setSeed(Utils.seed);
 		}
 		int x,y;
-		for(int i = 0; i < Utils.nbParticules; i++){
+		for(int i = 0; i < Utils.nbFishes; i++){
 			x = rdm.nextInt(Utils.grideSizeX);
 			y = rdm.nextInt(Utils.grideSizeY);
 			while(this.map[x][y] != null){
@@ -24,6 +24,15 @@ public class Wator extends Environement {
 			}
 			map[x][y] = new Fish(x,y,this);
 		}
+		for(int i = 0; i < Utils.nbSharks; i++){
+			x = rdm.nextInt(Utils.grideSizeX);
+			y = rdm.nextInt(Utils.grideSizeY);
+			while(this.map[x][y] != null){
+				x = rdm.nextInt(Utils.grideSizeX);
+				y = rdm.nextInt(Utils.grideSizeY);
+			}
+			map[x][y] = new Shark(x,y,this);
+		}
 	}
 	
 	public Color[][] getColor() {
@@ -31,9 +40,9 @@ public class Wator extends Environement {
 		for(int i = 0; i < Utils.grideSizeX; i++ ){
 			for(int j = 0; j < Utils.grideSizeY; j++){
 				if(map[i][j] != null){
-					res[i][j] = ((Bille) map[i][j]).getColor();
+					res[i][j] = ((MarinCreature) map[i][j]).getColor();
 				}else{
-					res[i][j] = null;
+					res[i][j] = Color.cyan;
 				}
 			}
 		}

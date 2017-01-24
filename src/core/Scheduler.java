@@ -29,6 +29,7 @@ public abstract class Scheduler extends Observable{
 			for(int i = 0; i < Utils.nbTricks;i++){
 				try {
 					environement.decideAll();
+					System.out.println(environement.toString());
 					setChanged();
 					notifyObservers();
 					Thread.sleep(Utils.delay);
@@ -40,7 +41,7 @@ public abstract class Scheduler extends Observable{
 	}
 	
 	public Color[][] getMap(){
-		return ((Surface) environement).getColor();
+		return  environement.getColor();
 	}
 	
 }
