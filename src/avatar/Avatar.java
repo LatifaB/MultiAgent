@@ -1,7 +1,11 @@
 package avatar;
 
-/**
- * Created by Latifa on 25/01/2017.
- */
-public class Avatar {
+
+import core.Agent;
+import core.Environement;
+
+public abstract class Avatar extends Agent{
+    public Avatar(int x, int y, Environement environement) {
+        super(x, y, environement);
+    }
 }
