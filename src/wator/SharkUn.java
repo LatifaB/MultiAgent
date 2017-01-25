@@ -92,15 +92,19 @@ public class SharkUn extends MarinCreature{
     }
 
     private boolean isOccupied(int x, int y){
-        if(x == (-1) || x == Utils.grideSizeX || y == (-1) || y == Utils.grideSizeY){
-            return true;
+        if(!Utils.isThorique()) {
+            if (x == (-1) || x == Utils.grideSizeX || y == (-1) || y == Utils.grideSizeY) {
+                return true;
+            }
         }
         return this.environement.getAgent(x, y) != null && this.environement.getAgent(x,y) instanceof Shark;
     }
 
     private boolean isYummy(int x, int y){
-        if(x == -1 || x == Utils.grideSizeX || y == -1 || y == Utils.grideSizeY){
-            return false;
+        if(!Utils.isThorique()) {
+            if (x == -1 || x == Utils.grideSizeX || y == -1 || y == Utils.grideSizeY) {
+                return false;
+            }
         }
         return this.environement.getAgent(x, y) != null && this.environement.getAgent(x,y) instanceof Fish;
     }

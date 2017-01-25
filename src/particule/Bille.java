@@ -11,7 +11,8 @@ public class Bille extends Agent{
 	protected int pasY;
 
 	public Bille(int x, int y, Surface surface){
-		super(x,y,surface);Random rdm = new Random();
+		super(x,y,surface);
+		Random rdm = new Random();
 
 		int[] pas = {1,-1};
 		if(Utils.seed != 0){

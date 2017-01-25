@@ -29,7 +29,6 @@ public abstract class Scheduler extends Observable{
 			for(int i = 0; i < Utils.nbTricks;i++){
 				try {
 					environement.decideAll();
-					System.out.println(environement.toString());
 					setChanged();
 					notifyObservers();
 					Thread.sleep(Utils.delay);

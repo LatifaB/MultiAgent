@@ -6,6 +6,8 @@ import java.util.Random;
 import core.Environement;
 import utils.Utils;
 
+import javax.rmi.CORBA.Util;
+
 public class Wator extends Environement {
 
 	public Wator(){
@@ -60,6 +62,8 @@ public class Wator extends Environement {
 				}
 			}
 		}
-		System.out.print(Utils.nbFishes + ";" + Utils.nbSharks+";");
+		if(Utils.showTrace()) {
+			System.out.print(Utils.nbFishes + ";" + Utils.nbSharks + ";");
+		}
 	}
 }

@@ -35,7 +35,9 @@ public abstract class Environement {
 			}
 		}
 		resetAll();
-		System.out.println("Tick;");
+		if(Utils.showTrace()) {
+			System.out.println("Tick;");
+		}
 	}
 	
 	private void resetAll(){

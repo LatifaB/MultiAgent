@@ -1,7 +1,5 @@
 package utils;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.ResourceBundle;
 
 public class Utils {
@@ -13,7 +11,7 @@ public class Utils {
 	public static int canvasSizeY = Integer.parseInt(Utils.bundle.getString("canvasSizeY"));
 	public static int delay = Integer.parseInt(Utils.bundle.getString("delay"));
 	public static int seed = Integer.parseInt(Utils.bundle.getString("seed"));
-	public static int refresh = Integer.parseInt(Utils.bundle.getString("refresh"));        //refresh sur le repaint
+	public static int refresh = Integer.parseInt(Utils.bundle.getString("refresh"));
 	public static int nbParticules = Integer.parseInt(Utils.bundle.getString("nbParticules"));
 	public static int nbTricks = Integer.parseInt(Utils.bundle.getString("nbTricks"));
 	public static int sharkBreedTime = Integer.parseInt(Utils.bundle.getString("sharkBreedTime"));
@@ -21,6 +19,11 @@ public class Utils {
 	public static int fishBreedTime = Integer.parseInt(Utils.bundle.getString("fishBreedTime"));
 	public static int nbSharks = Integer.parseInt(Utils.bundle.getString("nbSharks"));
 	public static int nbFishes = Integer.parseInt(Utils.bundle.getString("nbFishes"));
+	public static int wallsPercent = Integer.parseInt(Utils.bundle.getString("WallsPercent"));
+	public static int nbHunters = Integer.parseInt(Utils.bundle.getString("NbHunters"));
+	public static float speedHunter = Float.parseFloat(Utils.bundle.getString("SpeedHunter"));
+	public static float speedAvatar = Float.parseFloat(Utils.bundle.getString("SpeedAvatar"));
+	public static int defenderLife = Integer.parseInt(Utils.bundle.getString("DefenderLife"));
 	
 	public static String scheduling = Utils.bundle.getString("scheduling");
 

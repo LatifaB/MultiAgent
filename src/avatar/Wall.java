@@ -1,14 +1,15 @@
 package avatar;
 
-
+import core.Agent;
 import core.Environement;
 
 import java.awt.*;
 
-public class Hunter extends Avatar{
-    public Hunter(int x, int y, Environement environement) {
+
+public class Wall extends Agent{
+    public Wall(int x, int y, Board environement) {
         super(x, y, environement);
-        this.color = Color.red;
+        this.color = Color.black;
     }
 
     @Override
