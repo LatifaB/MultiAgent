@@ -5,21 +5,25 @@ import java.util.Random;
 
 public class Direction {
 
-    private LinkedList<Pair> nonVue = initDirection();
-    private LinkedList<Pair> dejaVue = new LinkedList<Pair>();
+    private LinkedList<Pair> nonVue;
+    private LinkedList<Pair> dejaVue;
 
-    private LinkedList<Pair> initDirection(){
-        LinkedList<Pair> dir = new LinkedList<Pair>();
-        dir.add(new Pair(0, 1));
-        dir.add(new Pair(0, -1));
-        dir.add(new Pair(1, 0));
-        dir.add(new Pair(-1, 0));
-        dir.add(new Pair(1, 1));
-        dir.add(new Pair(-1, 1));
-        dir.add(new Pair(1, -1));
-        dir.add(new Pair(-1, -1));
-        return dir;
-    };
+    public Direction(){
+        initDirection();
+    }
+
+    public void initDirection(){
+        nonVue = new LinkedList<Pair>();
+        dejaVue = new LinkedList<Pair>();
+        nonVue.add(new Pair(1, 1));
+        nonVue.add(new Pair(-1, 1));
+        nonVue.add(new Pair(1, -1));
+        nonVue.add(new Pair(-1, -1));
+        nonVue.add(new Pair(0, 1));
+        nonVue.add(new Pair(0, -1));
+        nonVue.add(new Pair(1, 0));
+        nonVue.add(new Pair(-1, 0));
+    }
 
     public Pair nextDirection(){
         Random rdm = new Random();
@@ -33,8 +37,6 @@ public class Direction {
             dejaVue.add(direction);
             return direction;
         }
-        nonVue = dejaVue;
-        dejaVue = new LinkedList<Pair>();
         return null;
     }
 }

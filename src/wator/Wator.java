@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.util.Random;
 
 import core.Environement;
-import particule.Bille;
 import utils.Utils;
 
 public class Wator extends Environement {
@@ -31,7 +30,7 @@ public class Wator extends Environement {
 				x = rdm.nextInt(Utils.grideSizeX);
 				y = rdm.nextInt(Utils.grideSizeY);
 			}
-			map[x][y] = new Shark(x,y,this);
+			map[x][y] = new SharkUn(x,y,this);
 		}
 	}
 	
@@ -49,4 +48,18 @@ public class Wator extends Environement {
 		return res;
 	}
 
+	@Override
+	public void decideAll() {
+		super.decideAll();
+		Utils.nbFishes = 0;
+		Utils.nbSharks = 0;
+		for(int i = 0; i < Utils.grideSizeX; i++){
+			for(int j = 0; j < Utils.grideSizeY; j++){
+				if(map[i][j] != null && !map[i][j].isMoved()){
+					((MarinCreature) map[i][j]).count();
+				}
+			}
+		}
+		System.out.print(Utils.nbFishes + ";" + Utils.nbSharks+";");
+	}
 }

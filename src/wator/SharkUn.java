@@ -1,18 +1,15 @@
 package wator;
 
-import core.Environement;
 import utils.Direction;
 import utils.Pair;
 import utils.Utils;
 
 import java.awt.*;
 
-
-public class Shark extends MarinCreature {
-
+public class SharkUn extends MarinCreature{
     private int starvingTime = 0;
 
-    public Shark(int x, int y, Wator environement) {
+    public SharkUn(int x, int y, Wator environement) {
         super(x, y, environement);
         this.color = Color.pink;
         this.adultColor = Color.red;
@@ -57,10 +54,36 @@ public class Shark extends MarinCreature {
         if(direction == null){
             if(this.starvingTime == Utils.sharkStraveTime){
                 this.environement.setAgent(this.x,this.y,null);
+                return;
             }else{
                 this.starvingTime++;
             }
-            return;
+
+            dir.initDirection();
+            direction = dir.nextDirection();
+            temporaire = direction;
+            nextX = this.x + direction.first();
+            nextY = this.y + direction.second();
+            if(Utils.isThorique()){
+                int[] tab = Utils.modulo(nextX,nextY);
+                nextX = tab[0];
+                nextY = tab[1];
+            }
+            while(this.isOccupied(nextX,nextY) && (direction = temporaire) != null){
+                nextX = this.x + direction.first();
+                nextY = this.y + direction.second();
+                if(Utils.isThorique()){
+                    int[] tab = Utils.modulo(nextX,nextY);
+                    nextX = tab[0];
+                    nextY = tab[1];
+                }
+                temporaire = dir.nextDirection();
+            }
+            if(direction == null) {
+                return;
+            }else{
+                this.updateMarinCreature(new Pair(nextX,nextY),new Shark(this.x,this.y,(Wator)this.environement), Utils.sharkBreedTime);
+            }
         }else {
             this.updateMarinCreature(new Pair(nextX,nextY),new Shark(this.x,this.y,(Wator)this.environement), Utils.sharkBreedTime);
             this.starvingTime = 0;
@@ -69,10 +92,10 @@ public class Shark extends MarinCreature {
     }
 
     private boolean isOccupied(int x, int y){
-        if(x == -1 || x == Utils.grideSizeX || y == -1 || y == Utils.grideSizeY){
+        if(x == (-1) || x == Utils.grideSizeX || y == (-1) || y == Utils.grideSizeY){
             return true;
         }
-        return this.environement.getAgent(x, y) == null && this.environement.getAgent(x,y) instanceof Shark;
+        return this.environement.getAgent(x, y) != null && this.environement.getAgent(x,y) instanceof Shark;
     }
 
     private boolean isYummy(int x, int y){
